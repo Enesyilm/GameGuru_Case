@@ -1,7 +1,7 @@
 using Extentions;
 using UnityEngine.Events;
 
-namespace UnityTemplateProjects.Case1.Signals
+namespace Case1.Signals
 {
     public class GridSignals:MonoSingleton<GridSignals>
     {

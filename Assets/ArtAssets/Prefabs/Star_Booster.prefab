@@ -11,6 +11,9 @@ GameObject:
   - component: {fileID: 5738517284232338014}
   - component: {fileID: 8650452286144026107}
   - component: {fileID: 6910883357165642033}
+  - component: {fileID: 2215884893282451161}
+  - component: {fileID: 632757800162438795}
+  - component: {fileID: 9145440321283452790}
   m_Layer: 0
   m_Name: Star_Booster
   m_TagString: Untagged
@@ -81,3 +84,40 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &2215884893282451161
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4965394220902498532}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: -0.000000029802322, y: 0.4082312, z: 0}
+--- !u!114 &632757800162438795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4965394220902498532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3e00d9384584f9782a591057a82669d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &9145440321283452790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4965394220902498532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06379b9b8a924fe18bc7c69dca7d15ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

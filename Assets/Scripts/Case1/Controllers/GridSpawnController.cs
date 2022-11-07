@@ -1,7 +1,8 @@
 using Concretes;
+using Controller;
 using UnityEngine;
 
-namespace Controller
+namespace Case1.Controller
 {
     public class GridSpawnController:MonoBehaviour
     {

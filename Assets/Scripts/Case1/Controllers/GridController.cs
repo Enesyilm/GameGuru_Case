@@ -1,10 +1,8 @@
-using System;
-using System.Collections.Generic;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
 
-namespace Controller
+namespace Case1.Controller
 {
     public class GridController : MonoBehaviour
     {

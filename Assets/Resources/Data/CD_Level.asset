@@ -9,6 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: abae6dea6b344e1f95c685867a0f6a89, type: 3}
+  m_Script: {fileID: 11500000, guid: 2305dd1100f04507ac94b5bf997016a6, type: 3}
   m_Name: CD_Level
   m_EditorClassIdentifier: 
+  LevelData:
+    BlockLength: 0a0000000c0000000e0000001000000012000000140000000a0000000a0000000a0000000a000000

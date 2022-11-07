@@ -1,7 +1,7 @@
 using UnityEngine;
 using Case2.Enums;
 
-namespace UnityTemplateProjects.Case2.Controllers
+namespace Case2.Controllers
 {
     public class PlayerAnimationController : MonoBehaviour
     {
@@ -22,6 +22,7 @@ namespace UnityTemplateProjects.Case2.Controllers
         public void ChangeAnimation(PlayerStates state)
         {
             if (_currentAnimation == state) return;
+            _currentAnimation = state;
             animator.SetTrigger(state.ToString());
         }
     }

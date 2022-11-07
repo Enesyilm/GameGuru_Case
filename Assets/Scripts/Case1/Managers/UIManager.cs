@@ -1,7 +1,6 @@
-using System;
 using Case1.Controller;
 using UnityEngine;
-using UnityTemplateProjects.Case1.Signals;
+using Case1.Signals;
 
 namespace Case1.Managers
 {

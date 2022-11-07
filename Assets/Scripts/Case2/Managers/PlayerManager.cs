@@ -1,9 +1,8 @@
-using System;
 using Case2.Enums;
 using Case2.Signals;
 using UnityEngine;
-using UnityTemplateProjects.Case2.Controllers;
-using Random = UnityEngine.Random;
+using Case2.Controllers;
+using Unity.Mathematics;
 
 namespace Case2.Managers
 {
@@ -13,6 +12,7 @@ namespace Case2.Managers
 
         #region Public Variables
             public Transform CurrentStack;
+            public PlayerStates CurrentType=PlayerStates.Idle;
         #endregion
         
         #region Serialized Variables
@@ -25,7 +25,6 @@ namespace Case2.Managers
         #region Private Variables
 
             private bool isReadyToPlay=false;
-            private PlayerStates _currentType=PlayerStates.Idle;
         #endregion
         #endregion
 
@@ -39,9 +38,11 @@ namespace Case2.Managers
         private void SubscribeEvents()
         {
             CoreGameSignals.Instance.onPlay+=OnPlay;
-        }
+            CoreGameSignals.Instance.onRestartLevel+=OnRestartLevel;
+            CoreGameSignals.Instance.onNextLevel+=OnNextLevel;
 
-      
+        }
+        
         private void OnDisable()
         {
             UnSubscribeEvents();
@@ -50,19 +51,36 @@ namespace Case2.Managers
         private void UnSubscribeEvents()
         {
             CoreGameSignals.Instance.onPlay-=OnPlay;
+            CoreGameSignals.Instance.onRestartLevel-=OnRestartLevel;
+            CoreGameSignals.Instance.onNextLevel-=OnNextLevel;
+
         }
 
         #endregion
+
+        private void OnNextLevel()
+        {
+            ChangeAnimation(PlayerStates.Idle);
+            ChangePlayerState(PlayerStates.Idle);
+            isReadyToPlay = false;
+        }
         private void OnPlay()
         {
             isReadyToPlay = true;
             ChangePlayerState(PlayerStates.Run);
             ChangeAnimation(PlayerStates.Run);
         }
-
+        private void OnRestartLevel()
+        {
+            transform.position=CoreGameSignals.Instance.onGetStartBlock.Invoke();
+            transform.rotation = quaternion.identity;
+            isReadyToPlay = false;
+            CurrentType = PlayerStates.Idle;
+            ChangeAnimation(PlayerStates.Idle);
+        }
         private void FixedUpdate()
         {
-            switch (_currentType)
+            switch (CurrentType)
             {
                 
                 case PlayerStates.Idle:
@@ -70,13 +88,16 @@ namespace Case2.Managers
                     else Stop();
                         break;
                 case PlayerStates.Fall:
-                    
+                    CoreGameSignals.Instance.onChangeGameStatus?.Invoke(GameStates.Failed);
+                    StopWithoutY();
                     break;
                 case PlayerStates.Run:
                     Move();
                     break;
                 case PlayerStates.Win:
                     Stop();
+                    
+                    ChangeAnimation(PlayerStates.Win);
                     break;
             }
         }
@@ -84,6 +105,10 @@ namespace Case2.Managers
         private void Stop()
         {
             movementController.Stop(playerRigidbody);
+        }
+        private void StopWithoutY()
+        {
+            movementController.StopWithoutY(playerRigidbody);
         }
 
         private void ChangeAnimation(PlayerStates state)
@@ -96,11 +121,17 @@ namespace Case2.Managers
             movementController.Move(playerRigidbody,CurrentStack);
         }
 
+        public void RotatePlayer()
+        {
+        }
+
         private void CheckIfPlayerFalling()
         {
-            if (playerRigidbody.velocity.y < -1)
+            if (playerRigidbody.velocity.y < -2)
             {
                 CoreGameSignals.Instance.onChangeGameStatus?.Invoke(GameStates.Failed);
+                CoreGameSignals.Instance.onLevelFailed?.Invoke();
+                AudioSignals.Instance.onPlayAudio?.Invoke(AudioTypes.Failed);
                 ChangeAnimation(PlayerStates.Fall);
                 ChangePlayerState(PlayerStates.Fall);
 
@@ -109,7 +140,7 @@ namespace Case2.Managers
 
         private void ChangePlayerState(PlayerStates state)
         {
-            _currentType = state;
+            CurrentType = state;
         }
     }
 }

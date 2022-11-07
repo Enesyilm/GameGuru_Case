@@ -1,10 +1,8 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using Controller;
+using Case1.Controller;
+
 using UnityEngine;
-using UnityEngine.XR;
-using UnityTemplateProjects.Case1.Signals;
+using Case1.Signals;
 
 public class GridManager : MonoBehaviour
 {

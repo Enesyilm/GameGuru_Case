@@ -114,9 +114,9 @@ MonoBehaviour:
   CurrentIndex: {x: 0, y: 0}
   GridManager: {fileID: 0}
   IsGridClicked: 0
-  xText: {fileID: 2046642732527395068}
   xSprite: {fileID: 5722215114048112135}
   glowSprite: {fileID: 6373461172892090608}
+  xText: {fileID: 2046642732527395068}
 --- !u!61 &4728244748406613701
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -383,7 +383,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: c0947046604294781a54818d5efaa1ea, type: 3}
   m_Color: {r: 1, g: 0.2365183, b: 0, a: 1}
   m_FlipX: 0

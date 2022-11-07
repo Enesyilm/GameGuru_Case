@@ -169,6 +169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentStack: {fileID: 0}
+  CurrentType: 3
   playerRigidbody: {fileID: 1502664012836896403}
   movementController: {fileID: 1502664011541526182}
   animationController: {fileID: 1502664011878145396}
@@ -195,13 +196,13 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1502664012836896405}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 03619ebc4fcdd8244ac53d58e3de1478, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.21540767
-  m_Height: 1.234587
+  m_Height: 1.2051888
   m_Direction: 1
-  m_Center: {x: -0.0130753815, y: 0.61247146, z: -0.0140963495}
+  m_Center: {x: -0.0130753815, y: 0.62717056, z: -0.0140963495}
 --- !u!1 &5408440061591205846
 GameObject:
   m_ObjectHideFlags: 0

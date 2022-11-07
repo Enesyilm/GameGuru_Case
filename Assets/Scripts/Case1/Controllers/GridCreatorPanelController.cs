@@ -1,7 +1,7 @@
 using System;
 using TMPro;
 using UnityEngine;
-using UnityTemplateProjects.Case1.Signals;
+using Case1.Signals;
 
 namespace Case1.Controller
 {
